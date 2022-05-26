@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 
 const EtkinlikEkle = () => {
+    const {katilimci_id} = useParams();
     const [hata, setHata] = useState("");
     const [sertifikalar, setSertifikalar] = useState([]);
     const [gonderilecek, setGonderilecek] = useState({});
-    const [kurum, setKurum] = useState([]);
+    const [kurum, setKurum] = useState({});
+    console.log("katilimcii",katilimci_id);
+    
     
    
    
     useEffect(() => {
         axios.all([
             axios.get(`http://localhost:8080/api/Sertifika/getAllSertifika`),
-            axios.get(`http://localhost:8080/api/Kurum/getAllKurum`),
+            
+            axios.get(`http://localhost:8080/api/Kurum/getByUser_UserId?userId=${katilimci_id}`)
 
         ])
             .then(response => {
                 setSertifikalar(response[0].data.data);
                 setKurum(response[1].data.data);
+               
             })
     }, []);
 
@@ -31,18 +37,22 @@ const EtkinlikEkle = () => {
         event.preventDefault();
         setHata("");
        
-        const fd = new FormData();
-        fd.append("image",afis,afis.name);
-        axios.post(`http://localhost:8080/api/EtkinlikImages/upload?etkinlikId=${etkinlikId}`)
 
 
-
-        const objj = {etkinlikAciklama:gonderilecek.etkinlikAciklama, etkinlikAd:gonderilecek.etkinlikAd,sertifika:{sertifikaId:gonderilecek.sertifikaId},tarih:gonderilecek.tarih,yer:gonderilecek.yer}
         
-        const objj2 = {etkinlikId:gonderilecek.etkinlikId, kurum:{kurumId:gonderilecek.kurumId}}
+
+        const objj = {etkinlikAciklama:gonderilecek.etkinlikAciklama,
+             etkinlikAd:gonderilecek.etkinlikAd,
+             kurumId: kurum.kurumId,
+             sertifikaImageId:gonderilecek.sertifikaId,
+             tarih:gonderilecek.tarih,yer:gonderilecek.yer}
+        
+       
+        console.log("objj",objj);
+      
         axios.all([
-            axios.post("http://localhost:8080/api/Etkinlik/add", objj),
-            axios.post(`http://localhost:8080/api/EtkinlikVeKurumlar/add`,objj2)
+            axios.post("http://localhost:8080/api/Etkinlik/add", objj)
+          
         ])
         .then((responses) => {
             alert("Etkinlik eklendi");
@@ -50,6 +60,7 @@ const EtkinlikEkle = () => {
          })
          .catch((error) => {
                 console.log(error);
+                
                 setHata("Ekleme işlemi başarısız ");
             });
     };
@@ -93,15 +104,8 @@ const EtkinlikEkle = () => {
                     <input name="yer" placeholder="Yer gir" onChange={onInputChange} />
                 </div>
 
-                <label htmlFor="kurum">Kurum seç:</label>
-
-                <select name="kurumId" onChange={onInputChange} id="kurum">
-                    {kurum.map(kr => {
-                        return (
-                            <option key={kr.kurumId} value={kr.kurumId} name="kurumId" >{kr?.kurumAd}</option>
-                        )
-                    })}
-                </select>
+                
+                
                 
 
                 <button className="ui button" type="submit" onClick={onFormSubmit}>Gönder</button>

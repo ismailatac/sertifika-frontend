@@ -17,7 +17,7 @@ const SertifikaEkle = () => {
                 axios.post("http://localhost:8080/api/Sertifika/add", objj)
             ])
             .then((response) => {
-                window.location.replace("http://localhost:3000/sertifika");
+                window.location.replace("http://localhost:3000/");
              })
              .catch((error) => {
                     console.log(error);
@@ -30,7 +30,7 @@ const SertifikaEkle = () => {
         setSertifikaEkle({ ...sertifikaEkle, [event.target.name]: event.target.value });
     }
 
-    console.log("aaa",sertifikaEkle)
+   
 
 
 

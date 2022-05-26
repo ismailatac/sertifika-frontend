@@ -1,13 +1,14 @@
-
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React,{useEffect} from 'react'
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
 import EtkinlikSil from './EtkinlikSil';
-import { Link } from 'react-router-dom';
 import { Image } from 'cloudinary-react';
 
 
-const EtkinlikDetay = (props) => {
+
+ const EtkinliklerimDetay = () => {
+
     const { etkinlik_id } = useParams();
     const {katilimci_id} = useParams();
     const {user_type} = useParams();
@@ -67,8 +68,8 @@ const EtkinlikDetay = (props) => {
 
     
 
-    return (
-        <React.Fragment>
+  return (
+    <React.Fragment>
             
                 <div className="ui grid">
 
@@ -77,7 +78,8 @@ const EtkinlikDetay = (props) => {
                         </div>
                         <p>{hata}</p>
                         </div>}
-                  
+                   <a class="btn btn-primary" href={`http://localhost:3000/${user_type}/${katilimci_id}/anasayfa/etkinlik/${etkinlik_id}/duzenle`}>Düzenle</a>
+                    <EtkinlikSil etkinlik_id={etkinlik_id} katilimci_id={katilimci_id}  />
                     <header></header>
                     <div>
                         <div className="four wide column">
@@ -114,15 +116,13 @@ const EtkinlikDetay = (props) => {
                         </div>
                     </div>
 
-                    {user_type == 1 &&   <div className="three wide column">
-                        <button size='massive' onClick={onFormSubmit}>Katıl</button>
-                    </div>}
+                  
                 </div>
                 
 
 
            
         </React.Fragment>
-    )
+  )
 }
-export default EtkinlikDetay;
+export default EtkinliklerimDetay;

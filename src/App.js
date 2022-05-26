@@ -6,22 +6,12 @@ import Navbar from './Navbar';
 
 
 function App() {
-  const [girisyapildi,setGirisYapildi] = useState(true);
-  const girisyap = true;
-  
-  if (!girisyapildi){
-    return(
-    <Login girisyapildi={girisyapildi} setGirisYapildi={setGirisYapildi} />
-    )
-    if (girisyapildi){
-      girisyap = true;
-    }
-  }
-  console.log(girisyap);
+
   return (
     <React.Fragment>
+    <Dashboard/>
     
-    {girisyap === true && <Dashboard />}
+     
     
 
     
