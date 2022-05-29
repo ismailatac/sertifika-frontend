@@ -10,7 +10,7 @@ import EtkinlikEkle from './EtkinlikEkle'
 import SertifikaEkle from './SertifikaEkle'
 import AfisEkle from './AfisEkle'
 import EtkinlikDuzenle from './EtkinlikDuzenle'
-import KurumEkle from './KurumEkle'
+
 import EtkinlikKurumEsle from './EtkinlikKurumEsle'
 import EtkinlikKonusmaciEsle from './EtkinlikKonusmaciEsle'
 import { useParams } from 'react-router-dom'
@@ -24,7 +24,7 @@ const Anasayfa = (props) => {
   return (
     <React.Fragment>
           <Navbar id={id} user_type={user_type} />
-       
+        
                 
                
 

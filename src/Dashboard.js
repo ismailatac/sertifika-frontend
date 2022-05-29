@@ -10,7 +10,7 @@ import Login from './Login'
 import SertifikaEkle from './SertifikaEkle'
 import AfisEkle from './AfisEkle'
 import EtkinlikDuzenle from './EtkinlikDuzenle'
-import KurumEkle from './KurumEkle'
+
 import EtkinlikKurumEsle from './EtkinlikKurumEsle'
 import EtkinlikKonusmaciEsle from './EtkinlikKonusmaciEsle'
 import { useState } from 'react'
@@ -44,7 +44,7 @@ const Dashboard = (props) => {
              <Route exact path="/:user_type/:katilimci_id/anasayfa/krmain/sertifikaekle" component={SertifikaEkle} />
              <Route exact path="/:user_type/:katilimci_id/anasayfa/afisekle" component={AfisEkle} />
             <Route exact path="/:user_type/:katilimci_id/anasayfa/etkinlik/:etkinlik_id/duzenle" component={EtkinlikDuzenle} />
-             <Route exact path="/:user_type/:katilimci_id/anasayfa/kurumekle" component={KurumEkle} />
+             
              <Route exact path="/:user_type/:katilimci_id/anasayfa/etkkurum" component={EtkinlikKurumEsle} />
              <Route exact path="/:user_type/:katilimci_id/anasayfa/etkkonusmaci" component={EtkinlikKonusmaciEsle} />
              <Route  exact path="/:user_type/:katilimci_id/anasayfa/profil" component={Profil} />

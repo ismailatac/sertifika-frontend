@@ -32,11 +32,40 @@ const Profil = () => {
 
   return (
     <React.Fragment>
-      <img src="/" className="ui small image" alt='Profil Fotosu' />
+      
 
       { user_type == 1 &&
         <React.Fragment>
-        <h1>
+
+<div class="hepsi">
+  <h2>Kişisel Bilgilerim</h2>
+  <div class="a">
+    <p>Katılımcı adı soyadı:{profil?.katilimci_ad}&nbsp; {profil?.katilimci_soyad}</p>
+  </div>
+  <div class="aa">
+    <p>Katılımcı Öğrenim Durumu : {profil?.ogrenimdurumu}</p>
+  </div>
+  <div class="a">
+    <p> Katılımcı Sınıfı : {profil?.sinif}</p>
+  </div>
+  <div class="aa">
+    <p>Katılımcı Telefonu : {profil?.telefon}</p>
+  </div><div class="a">
+    <p> Katılımcı Üniversitesi : {profil?.universite}</p>
+  </div>
+  <div class="aa">
+    <p>Kullanıcı email : {profil?.user?.email}</p>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+        {/* <h1>
         Kullanıcı adı soyadı : {profil?.katilimci_ad}&nbsp; {profil?.katilimci_soyad}
       </h1>
       <h1>
@@ -53,12 +82,40 @@ const Profil = () => {
       </h1>
       <h1>
         Kullanıcı email : {profil?.user?.email}
-      </h1>
+      </h1> */}
       </React.Fragment>
       }
       { user_type == 2 &&
         <React.Fragment>
-        <h1>
+
+<div class="hepsi">
+  <h2>Kişisel Bilgilerim</h2>
+  <div class="a">
+    <p> Kurum adı: {profil?.kurumAd}</p>
+  </div>
+  <div class="aa">
+    <p>Kurum Açıklaması : {profil?.kurumAciklama}</p>
+  </div>
+  <div class="a">
+    <p> Kurum Adresi : {profil?.adres}</p>
+  </div>
+  <div class="aa">
+    <p>Yetkili Adı : {profil?.yetkiliAd}</p>
+  </div><div class="a">
+    <p>Yetkili Soyadı : {profil?.yetkiliSoyad}</p>
+  </div>
+  <div class="aa">
+    <p>Yetkili Telefon Numarası : {profil?.yetkiliTel}</p>
+  </div>
+  <div class="a">
+    <p>Kurum Email : {profil?.user?.email}</p>
+  </div>
+  
+</div>
+
+
+
+        {/* <h1>
         Kurum adı: {profil?.kurumAd}
       </h1>
       <h1>
@@ -78,7 +135,7 @@ const Profil = () => {
       </h1>
       <h1>
        Kurum Email : {profil?.user?.email}
-      </h1>
+      </h1> */}
       </React.Fragment>
       }
 

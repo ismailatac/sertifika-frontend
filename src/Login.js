@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import axios from "axios";
+import "./login.css"
 
 
 
@@ -49,9 +50,43 @@ const Login = (props) => {
 
 
   return (<React.Fragment>
-    <h1>Giriş Yap</h1>
-    {hata && <p style={{color:"red"}}>{hata}</p>}
-    <form className="ui form">
+<div>
+<h3>WebCert</h3>
+<h4>Giriş Yap</h4>
+{hata && <h4 style={{color:"white", backgroundColor:"red" }}>{hata}</h4>}
+
+  <form >
+    <label htmlFor="email">E-posta</label>
+    <input type="email" name='email' value={check.email} onChange={onInputChange} placeholder="E-mail giriniz..."/>
+
+    <label htmlFor="password">Şifre</label>
+    <input type="password" name='password' value={check.password} onChange={onInputChange} placeholder="Şifre giriniz..."/>
+
+  
+    <input id="buton" type="submit" onClick={onFormSubmit} value="Giriş Yap"/>
+    
+  </form>
+  <br></br>
+    <a id="buton" href="http://localhost:3000/kayitol">Kayıt ol</a>
+  
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    {/* <form className="ui form">
       <div className="field">
         <label>Email</label>
         <input type="email" name='email' value={check.email} onChange={onInputChange} placeholder="E-mail gir" />
@@ -67,7 +102,7 @@ const Login = (props) => {
       
     </form>
     <br></br>
-    <a href="http://localhost:3000/kayitol"><button className="ui red button">Kayıt ol</button></a>
+    <a href="http://localhost:3000/kayitol"><button className="ui red button">Kayıt ol</button></a> */}
   </React.Fragment>
 
   )

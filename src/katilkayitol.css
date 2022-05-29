@@ -1,0 +1,13 @@
+#buton {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  div{
+    text-align: center;
+  }

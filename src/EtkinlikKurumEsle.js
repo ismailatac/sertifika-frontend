@@ -10,6 +10,7 @@ const EtkinlikKurumEsle = () => {
     const [yeniet, setYeniet] = useState(0);
     const [yenikr, setYenikr] = useState(0);
     const [hata,setHata] = useState("");
+    const [basarilimi, setBasarilimi] = useState(false);
 
     useEffect(() => {
         axios.all([
@@ -24,6 +25,7 @@ const EtkinlikKurumEsle = () => {
 
             })
     }, []);
+    console.log(kurum)
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -35,27 +37,29 @@ const EtkinlikKurumEsle = () => {
 
         const objj = {etkinlik:{etkinlikId:yeniet}, kurum:{kurumId:yenikr}}
         
-        console.log("etkinlik konusmaci:",objj);
+        console.log(yeniet,yenikr);
         axios.all([
             axios.post("http://localhost:8080/api/EtkinlikVeKurumlar/add", objj),
             
         ])
         .then((responses) => {
-            alert("EtkUrum eklendi");
-            window.location.replace(`/${user_type}/${katilimci_id}/anasayfa/etkinlik`);
+            setBasarilimi(true);
+            //window.location.replace(`/${user_type}/${katilimci_id}/anasayfa/etkinlik`);
          })
          .catch((error) => {
-                console.log(error);
                 
-                setHata(error.message);
+                
+                setHata(error.response.data.message);
             });
     };
     
 
     return (
         <React.Fragment>
-            {hata && <p>{hata}</p>}
-            <form className="ui form">
+            <br></br>
+            {hata && <p style={{backgroundColor:"red",color:"white"}}>{hata}</p>}
+           {basarilimi && <div style={{color:"green"}}><p style={{backgroundColor:"green", color:"white"}}>İşlem Başarılı</p><p>Eşleştirme işlemi başarıyla tamamlandı.</p></div>}
+            <form >
 
                 <label htmlFor="etkinlik">Etkinlik seç:</label>
 
@@ -72,7 +76,7 @@ const EtkinlikKurumEsle = () => {
                 <select name="kurumId" onChange={(e) => { setYenikr(e.target.value) }} id="kurum">
                     {kurum?.map(kr => {
                         return (
-                            <option value={kurum.kurumId}  >{kr?.kurumAd}</option>
+                            <option value={kr.kurumId}>{kr.kurumAd}</option>
                         )
                     })}
                 </select>

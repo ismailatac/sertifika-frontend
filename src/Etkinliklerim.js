@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
+import "./etkinliklerim.css";
 
 
  const Etkinliklerim = () => {
@@ -9,14 +10,10 @@ import axios from 'axios';
     const { etkinlik_id } = useParams();
     const {katilimci_id} = useParams();
     const {user_type} = useParams();
-    const [detay, setDetay] = useState({});
-    const [katilimci, setKatilimci] = useState({});
-    
+  
     const [gonderilecek, setGonderilecek] = useState({});
-    const [hata, setHata] = useState("");
-    const [konusmaci,setKonusmaci] = useState([]);
-    const [kurum, setKurum] = useState([]);
-    const [afis,setAfis] = useState({});
+   
+    
    
 
     const obj = {etkinlik:{etkinlikId:etkinlik_id},katilimci:{katilimciId:katilimci_id}}
@@ -44,25 +41,24 @@ import axios from 'axios';
     return (
         <React.Fragment>
              
-            <h1>Etkinlik Listesi</h1>
-
+            <h1>Etkinliklerim Listesi</h1>
+            <table>
+               
             {etkinliklerim?.map(etk => {
                 return (
-
-                    <div className="ui relaxed divided list" key={etk?.etkinlik.etkinlikId} >
+                    <React.Fragment>
+                    <tr  key={etk?.etkinlik.etkinlikId} >
                         <a href={`http://localhost:3000/${user_type}/${katilimci_id}/anasayfa/etkinliklerim/${etk?.etkinlik.etkinlikId}`}>
-                            <div className="item" >
-                                <i className="angle double right icon"></i>
-                                <div className="content">
-                                    Etkinlik adı {etk?.etkinlik.etkinlikAd}
-                                    <div className="description"> Ekinlik açıklama {etk?.etkinlik.etkinlikAciklama}</div>
-                                </div>
-                            </div>
+                                   <p>{etk?.etkinlik.etkinlikAd}</p> 
+                                    <p> {etk?.etkinlik.etkinlikAciklama}</p>
+                                
                         </a>
-                    </div>
-
+                    </tr>
+                    <br></br>
+                    </React.Fragment>
                 )
             })}
+            </table>
             
         </React.Fragment>
     )

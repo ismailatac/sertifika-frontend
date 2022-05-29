@@ -1,0 +1,13 @@
+table{   
+    -webkit-text-size-adjust: 100%;
+   font-family: Verdana,sans-serif;
+   font-size: 15px;
+   line-height: 1.5;
+   color: #000!important;
+   box-sizing: inherit;
+   border-collapse: collapse;
+   border-spacing: 0;
+   width: 100%;
+   display: table;
+   border: 1px solid green;
+   margin: 20px 0;}

@@ -10,6 +10,7 @@ const EtkinlikKonusmaciEsle = () => {
     const [konusmaci, setKonusmaci] = useState([]);
     const [etkinlik, setEtkinlik] = useState([]);
     const [hata,setHata] = useState("");
+    const [basarilimi, setBasarilimi] = useState(false);
 
     // const onInputChange = (event) => {
     //     console.log(gonderilecek);
@@ -39,12 +40,12 @@ const EtkinlikKonusmaciEsle = () => {
             axios.post(`http://localhost:8080/api/EtkinlikVeKonusmacilar/add`, objj3),
         ])
             .then((responses) => {
-                alert("Etkinliğe konuşmacı eklendi");
-            window.location.replace(`/${user_type}/${katilimci_id}/anasayfa/etkinlik`);
+                setBasarilimi(true);
+            //window.location.replace(`/${user_type}/${katilimci_id}/anasayfa/etkinlik`);
             })
             .catch((error) => {
                 console.log(error);
-                setHata("Ekleme işlemi başarısız ");
+                setHata(error.response.data.message);
             });
     };
 
@@ -52,7 +53,10 @@ const EtkinlikKonusmaciEsle = () => {
 
     return (
         <React.Fragment>
-            <form className='ui form'>
+            <br></br>
+            {hata && <p style={{backgroundColor:"red",color:"white"}}>{hata}</p>}
+           {basarilimi && <div style={{color:"green"}}><p style={{backgroundColor:"green", color:"white"}}>İşlem Başarılı</p><p>Eşleştirme işlemi başarıyla tamamlandı.</p></div>}
+            <form>
                 <label key={etkinlik.etkinlikKurumId}  htmlFor="etkinlikId">Etkinlik seç:</label>
 
                 <select name="etkinlikId" id="etkinlik" onChange={(e) => { setYeniet(e.target.value) }}>
@@ -78,7 +82,7 @@ const EtkinlikKonusmaciEsle = () => {
                     })}
                 </select>
                 <br></br>
-                <button className="ui button" type="submit" onClick={onFormSubmit}>Gönder</button>
+                <button type="submit" onClick={onFormSubmit}>Gönder</button>
             </form>
 
 

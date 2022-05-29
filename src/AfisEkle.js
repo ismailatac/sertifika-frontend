@@ -14,18 +14,16 @@ const AfisEkle = () => {
     const [hata, setHata] = useState("");
 
     const uploadImage = (files) => {
-       
-        console.log(gonderilecek.etkinlikId);
+       setHata("");
+        
         const formData = new FormData();
         formData.append("file",files); 
         formData.append("upload_preset","ml_default" );
-        console.log("formdata",formData)
+        
         axios.post(`http://localhost:8080/api/EtkinlikImages/upload?etkinlikId=${gonderilecek.etkinlikId}`,
         formData).then(res =>{
-            alert(res);
-            console.log(res);
             setBasarilimi(true);
-            // window.location.replace(`http://localhost:3000/${user_type}/${katilimci_id}/anasayfa/etkinlik`)
+            //window.location.replace(`http://localhost:3000/${user_type}/${katilimci_id}/anasayfa/etkinlik`)
         })
         .catch(error =>{
             setBasarilimi(false);
@@ -88,7 +86,7 @@ const AfisEkle = () => {
         <React.Fragment>
             <h1>Etkinliğe Afiş Ekle</h1>
             {hata && <p style={{color:"red"}}>{hata}</p>}
-           {basarilimi && <div className="ui info message"><div className="header">Yükleme İşlemi Başarılı</div><p>Yükleme işlemi başarıyla tamamlandı.</p></div>}
+           {basarilimi && <div style={{color:"green"}}><p>Yükleme İşlemi Başarılı</p><p>Yükleme işlemi başarıyla tamamlandı.</p></div>}
             <form encType="multipart/form-data">
                 <select name="etkinlikId" onChange={onInputChange2} id="etkinlik">
                     {etkinlik.map(etk => {
@@ -105,7 +103,7 @@ const AfisEkle = () => {
                     
                     
                 }} />
-                <button type="submit"  >Gönder</button>
+                
             </form>
 
 
