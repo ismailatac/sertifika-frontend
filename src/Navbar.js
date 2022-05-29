@@ -17,6 +17,8 @@ const Navbar = (props) => {
                     <a href={`http://localhost:3000/${user_type}/${id}/anasayfa/etkinliklerim`}>Etkinliklerim</a>
                     <a href={`http://localhost:3000/${user_type}/${id}/anasayfa/krmain/sertifikaekle`}>Sertifika ekle</a>
                     <a href={`http://localhost:3000/${user_type}/${id}/anasayfa/afisekle`}>Afiş Ekle</a>
+
+                    <a href={`http://localhost:3000/${user_type}/${id}/anasayfa/srtresim`}>Sertifikaya Resim Ekle</a>
                     
                     <a href={`http://localhost:3000/${user_type}/${id}/anasayfa/etkkurum`}>Etkinliğe Kurum Ekle</a>
                     <a href={`http://localhost:3000/${user_type}/${id}/anasayfa/etkkonusmaci`}> Etkinliğe Konuşmacı Ekle</a>

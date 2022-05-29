@@ -20,7 +20,7 @@ const SertifikaEkle = () => {
             axios.post("http://localhost:8080/api/Sertifika/add", objj)
         ])
             .then((response) => {
-                window.location.replace(`http://localhost:3000/${user_type}/${katilimci_id}/etkinlik`);
+                window.location.replace(`http://localhost:3000/${user_type}/${katilimci_id}/anasayfa/etkinlik`);
             })
             .catch((error) => {
                 

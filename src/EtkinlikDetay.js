@@ -75,12 +75,12 @@ const EtkinlikDetay = (props) => {
     const onFormSubmit = (event) => {
         event.preventDefault();
         setHata("");
-        console.log("objj", obj);
+       
         axios.post("http://localhost:8080/api/EtkinlikVeKatilimcilar/add", obj)
             .then((response) => {
 
                 setTimeout(() => { console.log("katılma işlemi başarılı"); }, 5000);
-                window.location.replace("http://localhost:3000/:katilimci_id/etkinlik");
+                window.location.replace("http://localhost:3000/:katilimci_id/anasayfa/etkinlik");
             })
             .catch((error) => {
                 console.log(error);
@@ -88,7 +88,7 @@ const EtkinlikDetay = (props) => {
             });
     };
 
-
+console.log("",afis)
 
     return (
         <React.Fragment>

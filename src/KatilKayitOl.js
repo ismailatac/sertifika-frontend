@@ -44,7 +44,7 @@ const KatilKayitOl = () => {
                 
                 <form >
                     <label htmlFor="katilimci_ad">Katılımcı adı</label>
-                    <input type="text" id="katilimci_ad" required name="katilimci_ad" placeholder="Katılımcı adını giriniz..." onChange={onInputChange} />
+                    <input type="text" id="katilimci_ad"  name="katilimci_ad" placeholder="Katılımcı adını giriniz..." onChange={onInputChange} required />
                 
                     <label htmlFor="katilimci_soyad">Katılımcı soyadı</label>
                     <input type="text" id="katilimci_soyad" required name="katilimci_soyad" placeholder="Katılımcının soyadını giriniz..." onChange={onInputChange} />

@@ -16,7 +16,7 @@ const KurumKayitOl = () => {
             yetkiliAd: gonderilecek.yetkiliAd, yetkiliSoyad: gonderilecek.yetkiliSoyad, yetkiliTel: gonderilecek.yetkiliTel, email: gonderilecek.email, password: gonderilecek.password
         }
 
-        console.log(objj);
+       
         axios.all([
             axios.post("http://localhost:8080/api/Kurum/add", objj),
 

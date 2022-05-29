@@ -21,6 +21,7 @@ import KatilKayitOl from './KatilKayitOl'
 import KayitOl from './KayitOl'
 import Etkinliklerim from './Etkinliklerim'
 import EtkinliklerimDetay from './EtkinliklerimDetay'
+import SertifikaResimEsle from './SertifikaResimEsle'
 
 const Dashboard = (props) => {
     
@@ -48,6 +49,7 @@ const Dashboard = (props) => {
              <Route exact path="/:user_type/:katilimci_id/anasayfa/etkkurum" component={EtkinlikKurumEsle} />
              <Route exact path="/:user_type/:katilimci_id/anasayfa/etkkonusmaci" component={EtkinlikKonusmaciEsle} />
              <Route  exact path="/:user_type/:katilimci_id/anasayfa/profil" component={Profil} />
+             <Route  exact path="/:user_type/:katilimci_id/anasayfa/srtresim" component={SertifikaResimEsle} />
             </Router>
             
         </React.Fragment>

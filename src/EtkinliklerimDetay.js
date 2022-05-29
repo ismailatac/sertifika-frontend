@@ -58,7 +58,7 @@ const EtkinliklerimDetay = () => {
             .then((response) => {
 
                 setTimeout(() => { console.log("katılma işlemi başarılı"); }, 5000);
-                window.location.replace("http://localhost:3000/:katilimci_id/etkinlik");
+                window.location.replace("http://localhost:3000/:katilimci_id/anasayfa/etkinlik");
             })
             .catch((error) => {
                 console.log(error);

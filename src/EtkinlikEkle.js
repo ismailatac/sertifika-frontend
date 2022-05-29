@@ -48,7 +48,7 @@ const EtkinlikEkle = () => {
         }
 
 
-        console.log("objj11", objj);
+        
 
         axios.all([
             axios.post("http://localhost:8080/api/Etkinlik/add", objj)
@@ -56,7 +56,7 @@ const EtkinlikEkle = () => {
         ])
             .then((responses) => {
                 alert("Etkinlik eklendi");
-                window.location.replace(`http://localhost:3000/${user_type}/${katilimci_id}/etkinlik`);
+                window.location.replace(`http://localhost:3000/${user_type}/${katilimci_id}/anasayfa/etkinlik`);
             })
             .catch((error) => {
                 console.log(error);

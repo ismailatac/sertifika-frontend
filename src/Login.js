@@ -24,7 +24,7 @@ const Login = (props) => {
     const obj = { email: check.email, password: check.password }
 
 
-    console.log("obje", obj);
+   
 
     axios.all([
       axios.post(`http://localhost:8080/api/users/login`, obj),
@@ -40,7 +40,7 @@ const Login = (props) => {
 
       })
       .catch((error) => {
-        console.log(error);
+        
         setHata(error.response.data.message);
         setCheck({email: "", password: ""});
         setType(0)
