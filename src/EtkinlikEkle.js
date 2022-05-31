@@ -88,6 +88,9 @@ const EtkinlikEkle = () => {
             <div>
             {hata && <h4 style={{color:"white", backgroundColor:"red" }}>{hata}</h4>}
                 <form>
+                    <h4>Etkinlik eklemek için öncelikle bir sertifika oluşturup, oluşturduğunuz sertifikaya da bir resim eklemelisiniz. Daha sonra o sertifikayı seçerek
+                        etkinliğinizi oluşturabilirsiniz. Etkinliği oluşturduktan sonra afiş eklemelisiniz.
+                    </h4>
                     <div>
                         <label>Etkinlik adı</label>
                         <input required name="etkinlikAd" placeholder="Etkinlik adını giriniz..." onChange={onInputChange} />

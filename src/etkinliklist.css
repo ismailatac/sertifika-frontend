@@ -17,6 +17,6 @@ table{
    a{
        color:white;
    }
-   a:hover{
+   a:hover{ /* mouse ile üstüne gelince */
     color:#52ffeb;
    }

@@ -40,6 +40,7 @@ const SertifikaEkle = () => {
     return (
         <React.Fragment>
             <div>
+                <h4>Oluşturduğunuz sertifikaya resim eklemeyi unutmayınız.</h4>
             {hata && <h4 style={{color:"white", backgroundColor:"red" }}>{hata}</h4>}
                 <form >
                     <label>Sertifika Adı</label>

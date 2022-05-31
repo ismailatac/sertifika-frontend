@@ -19,7 +19,7 @@ const Sertifika = (props) => {
             
         }, []);
 
-      
+      console.log(srt)
         
 
     return (

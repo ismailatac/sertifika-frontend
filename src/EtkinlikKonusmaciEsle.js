@@ -57,7 +57,7 @@ const EtkinlikKonusmaciEsle = () => {
             {hata && <p style={{backgroundColor:"red",color:"white"}}>{hata}</p>}
            {basarilimi && <div style={{color:"green"}}><p style={{backgroundColor:"green", color:"white"}}>İşlem Başarılı</p><p>Eşleştirme işlemi başarıyla tamamlandı.</p></div>}
             <form>
-                <label key={etkinlik.etkinlikKurumId}  htmlFor="etkinlikId">Etkinlik seç:</label>
+                <label key={etkinlik?.etkinlikKurumId}  htmlFor="etkinlikId">Etkinlik seç:</label>
 
                 <select name="etkinlikId" id="etkinlik" onChange={(e) => { setYeniet(e.target.value) }}>
                     {etkinlik?.map(etk => {

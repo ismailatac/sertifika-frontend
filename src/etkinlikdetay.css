@@ -1,8 +1,8 @@
-.hepsi{-webkit-text-size-adjust: 100%;
-    font-family: Verdana,sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    box-sizing: inherit;
+.hepsi{-webkit-text-size-adjust: 100%; /* pencere boyutu değişince oluşan css bozukluklarını önler */
+    font-family: Verdana,sans-serif; /* yazı tipi */
+    font-size: 15px; 
+    line-height: 1.5; /* satırlar arası boşluk */
+    box-sizing: inherit; 
     padding: 0.01em 16px;}
     .a{   
          -webkit-text-size-adjust: 100%;
@@ -13,7 +13,7 @@
         padding: 0.01em 16px;
         margin-top: 16px;
         margin-bottom: 16px;
-        color: #fff!important;
+        color: #fff!important; 
         background-color: green!important;}
     .aa{    
         -webkit-text-size-adjust: 100%;

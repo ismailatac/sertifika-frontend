@@ -19,7 +19,7 @@ const AfisEkle = () => {
         const formData = new FormData();
         formData.append("file",files); 
         formData.append("upload_preset","ml_default" );
-        
+        console.log("aaaa",gonderilecek.etkinlikId)
         axios.post(`http://localhost:8080/api/EtkinlikImages/upload?etkinlikId=${gonderilecek.etkinlikId}`,
         formData).then(res =>{
             setBasarilimi(true);
@@ -44,6 +44,7 @@ const AfisEkle = () => {
 
 
     const onInputChange2 = (event) => {
+        console.log("xx",gonderilecek);
         setGonderilecek({ ...gonderilecek, [event.target.name]: event.target.value });
     }
     
@@ -80,7 +81,7 @@ const AfisEkle = () => {
 
     // };
 
-
+    
 
     return (
         <React.Fragment>
@@ -90,8 +91,9 @@ const AfisEkle = () => {
             <form encType="multipart/form-data">
                 <select name="etkinlikId" onChange={onInputChange2} id="etkinlik">
                     {etkinlik.map(etk => {
+                       
                         return (
-                            <option key={etk.etkinlik.etkinlikId} value={etk.etkinlik.etkinlikId} name="etkinlikId" >{etk?.etkinlik.etkinlikAd}</option>
+                            <option key={etk?.etkinlik?.etkinlikId} value={etk.etkinlik.etkinlikId} name="etkinlikId"  >{etk?.etkinlik.etkinlikAd}</option>
                         )
                     })}
                 </select>

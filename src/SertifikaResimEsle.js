@@ -46,7 +46,7 @@ const SertifikaResimEsle = () => {
     }
     return (
         <React.Fragment>
-            <h1>Etkinliğe Afiş Ekle</h1>
+            <h1>Sertifikaya Resim Ekle</h1>
             {hata && <p style={{ color: "red" }}>{hata}</p>}
             {basarilimi && <div style={{ color: "green" }}><p>Yükleme İşlemi Başarılı</p><p>Yükleme işlemi başarıyla tamamlandı.</p></div>}
             <form encType="multipart/form-data">

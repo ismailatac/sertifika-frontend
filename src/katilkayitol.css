@@ -9,5 +9,5 @@
     cursor: pointer;
   }
   div{
-    text-align: center;
+    text-align: center; /* içindeki yazıyı merkeze al */
   }

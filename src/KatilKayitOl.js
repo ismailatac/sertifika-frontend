@@ -59,7 +59,7 @@ const KatilKayitOl = () => {
                     <input type="text" id="bolum" required name="bolum" placeholder="Katılımcının bölümünü giriniz..." onChange={onInputChange} />
 
                     <label htmlFor="sinif">Sınıfı</label>
-                    <input type="text" id="sinif" required name="sinif" placeholder="Katılımcının bölümünü giriniz..." onChange={onInputChange} />
+                    <input type="text" id="sinif" required name="sinif" placeholder="Katılımcının sınıfını giriniz..." onChange={onInputChange} />
 
                     <label htmlFor="telefon">Telefon numarası</label>
                     <input type="tel" id="telefon" required name="telefon" placeholder="Katılımcının telefon numarasını giriniz..." onChange={onInputChange} />

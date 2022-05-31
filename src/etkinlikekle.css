@@ -1,26 +1,26 @@
 input, select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    width: 100%; /* genişlik */
+    padding: 12px 20px; /* yazı ile border arası uzaklık */
+    margin: 8px 0; /* dış çerçeve ile uzaklık */
+    display: inline-block; /* alt satırla ya da birlikte görünme şekli */
+    border: 1px solid #ccc; /* çerçeve */
+    border-radius: 4px; /* kenar yuvarlama */
+    box-sizing: border-box; /* çerçeve ile yazı arası uzaklık ayarı */
   }
   
   button {
-    width: 100%;
+    width: 100%; 
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer; /* hover durumunda imleç el işaretine döner */
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* arkaplan rengi */
   }
   
   div {

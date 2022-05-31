@@ -23,13 +23,14 @@ const EtkinlikDetay = (props) => {
     const [konusmaci, setKonusmaci] = useState([]);
     const [kurum, setKurum] = useState([]);
     const [afis, setAfis] = useState({});
+    const [userilekatil, setUserilekatil] = useState({});
 
 
 
 
 
 
-    const obj = { etkinlik: { etkinlikId: etkinlik_id }, katilimci: { katilimciId: katilimci_id } }
+    const obj = { etkinlik: { etkinlikId: etkinlik_id }, katilimci: { katilimciId: userilekatil.katilimciId } }
 
 
     useEffect(() => {
@@ -40,6 +41,7 @@ const EtkinlikDetay = (props) => {
             axios.get(`http://localhost:8080/api/EtkinlikVeKonusmacilar/getByEtkinlikId?etkinlikId=${etkinlik_id}`),
             axios.get(`http://localhost:8080/api/EtkinlikVeKurumlar/getByEtkinlikId?etkinlikId=${etkinlik_id}`),
             axios.get(`http://localhost:8080/api/EtkinlikImages/getByEtkinlikId?etkinlikId=${etkinlik_id}`),
+            axios.get(`http://localhost:8080/api/Katilimci/getByUser_UserId?userId=${katilimci_id}`),
 
         ])
             .then((responses) => {
@@ -48,6 +50,8 @@ const EtkinlikDetay = (props) => {
                 setKonusmaci(responses[2].data.data);
                 setKurum(responses[3].data.data);
                 setAfis(responses[4].data.data);
+                setUserilekatil(responses[5].data.data)
+                
             })
     }, []);
 
@@ -64,7 +68,7 @@ const EtkinlikDetay = (props) => {
 
     // Apply the transformation.
     myImage.resize(thumbnail().width(500).height(500).gravity(focusOn(FocusOn.face()))).roundCorners(byRadius(20));
-    console.log(myImage)
+   
 
     const onInputChange = (event) => {
         setGonderilecek({ ...gonderilecek, [event.target.name]: event.target.value });
@@ -80,7 +84,7 @@ const EtkinlikDetay = (props) => {
             .then((response) => {
 
                 setTimeout(() => { console.log("katılma işlemi başarılı"); }, 5000);
-                window.location.replace("http://localhost:3000/:katilimci_id/anasayfa/etkinlik");
+                window.location.replace(`http://localhost:3000/${user_type}/${katilimci_id}/anasayfa/etkinlik`);
             })
             .catch((error) => {
                 console.log(error);
@@ -88,7 +92,7 @@ const EtkinlikDetay = (props) => {
             });
     };
 
-console.log("",afis)
+
 
     return (
         <React.Fragment>
